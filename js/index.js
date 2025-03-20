@@ -10,7 +10,6 @@ document.querySelector('form button').onclick = (event) => {
     event.preventDefault();
 
     const addTask = document.querySelector('.js--form__input');
-    addTask.value;   // Мария, мне кажется эта строка лишняя?
 
     if (addTask.value?.trim()) {
         const itemOfList = document.createElement('li');
@@ -40,4 +39,10 @@ document.querySelector('.js--todos-wrapper').addEventListener('click', (event) =
 
         localStorage.setItem('activeClick', toDoList.innerHTML);
     }
+
+    if (event.target.tagName === 'INPUT') {
+        event.target.parentElement.classList.toggle('todo-item---checked');
+        localStorage.setItem('activeClick', toDoList.innerHTML);
+    }
+
 });
